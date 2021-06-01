@@ -171,9 +171,10 @@ namespace Files_hw
                                 } while (checker2 == false);
 
                             }
-                            catch (Exception ex)
+                            catch (Exception)
                             {
-                                Console.WriteLine(ex.Message);
+                                Console.WriteLine("This choice is for Windows, pls choose 2 for MacOS");
+                                result = false;
                             }
 
                             break;
@@ -286,9 +287,10 @@ namespace Files_hw
                                         }
                                     } while (checker2 == false);
                             }
-                            catch (Exception ex)
+                            catch (Exception)
                             {
-                                Console.WriteLine(ex.Message);
+                                Console.WriteLine("This choice is for MacOS, pls choose 1 for Windows");
+                                result = false;
                             }
 
 
