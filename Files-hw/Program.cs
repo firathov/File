@@ -59,8 +59,8 @@ namespace Files_hw
             do
             {
                 Console.WriteLine("Choose 1 for Windows or 2 for MacOS");
-                int switcher = Convert.ToInt32(Console.ReadLine());
-                switch(switcher)
+                int switcher = ForIdCheck();
+                switch (switcher)
                 {
                     case 1:
                         {
@@ -76,25 +76,16 @@ namespace Files_hw
                     case 2:
                         {
                             string catalog = "/Users/firat/FileName/";
-                            //Console.Write("Type ID number for 1st User (it should contain 3 digits): ");
                             int id = 001;
-                            //Console.Write("Type ID number for 2nd User (it should contain 3 digits): ");
                             int id1 = 025;
-                            //Console.Write("Type ID number for 3rd User (it should contain 3 digits): ");
                             int id2 = 034;
 
-                            //Console.Write("Type passport Number for 1st User: ");
                             string pasNumber = "AZE12345678";
-                            //Console.Write("Type passport Number for 2nd User: ");
                             string pasNumber1 = "AZE87652134";
-                            //Console.Write("Type passport Number for 3rd User: ");
                             string pasNumber2 = "AZE81622144";
 
-                            //Console.Write("Type Payment amount for 1st User: ");
                             double payment = 22.30;
-                            //Console.Write("Type Payment amount for 2nd User: ");
                             double payment1 = 50.00;
-                            //Console.Write("Type Payment amount for 3rd User: ");
                             double payment2 = 12.35;
 
                             Client client = new Client(id, pasNumber, payment);
@@ -134,8 +125,8 @@ namespace Files_hw
                                             using (StreamWriter fileWriter2 = new StreamWriter($"{catalog}\nSomethingCopy.txt", false, System.Text.Encoding.Default))
                                             {
                                                 fileWriter2.WriteLine($"\n Your Payment amount was changed - {client.Id} {client.PasNumber} { client.Payment }");
-                                                fileWriter2.WriteLine($"\n Nothing has been changed - {client1.Id} {client1.PasNumber} { client1.Payment }");
-                                                fileWriter2.WriteLine($"\n Nothing has been changed - {client2.Id} {client2.PasNumber} { client2.Payment }");
+                                                fileWriter2.WriteLine($"\n Nothing was changed - {client1.Id} {client1.PasNumber} { client1.Payment }");
+                                                fileWriter2.WriteLine($"\n Nothing was changed - {client2.Id} {client2.PasNumber} { client2.Payment }");
                                             }
                                             using (StreamReader fileReader = new StreamReader($"{catalog}\nSomethingCopy.txt"))
                                             {
@@ -149,9 +140,9 @@ namespace Files_hw
                                             client1.Payment = ForPaymentCheck();
                                             using (StreamWriter fileWriter2 = new StreamWriter($"{catalog}\nSomethingCopy.txt", false, System.Text.Encoding.Default))
                                             {
-                                                fileWriter2.WriteLine($"\nYour Payment amount was changed - {client.Id} {client.PasNumber} { client.Payment }");
+                                                fileWriter2.WriteLine($"\nNothing was changed - {client.Id} {client.PasNumber} { client.Payment }");
                                                 fileWriter2.WriteLine($"\nYour Payment amount was changed - {client1.Id} {client1.PasNumber} { client1.Payment }");
-                                                fileWriter2.WriteLine($"\nYour Payment amount was changed - {client2.Id} {client2.PasNumber} { client2.Payment }");
+                                                fileWriter2.WriteLine($"\nNothing was changed - {client2.Id} {client2.PasNumber} { client2.Payment }");
                                             }
                                             using (StreamReader fileReader = new StreamReader($"{catalog}\nSomethingCopy.txt"))
                                             {
@@ -165,8 +156,8 @@ namespace Files_hw
                                             client2.Payment = ForPaymentCheck();
                                             using (StreamWriter fileWriter2 = new StreamWriter($"{catalog}\nSomethingCopy.txt", false, System.Text.Encoding.Default))
                                             {
-                                                fileWriter2.WriteLine($"\nYour Payment amount was changed - {client.Id} {client.PasNumber} { client.Payment }");
-                                                fileWriter2.WriteLine($"\nYour Payment amount was changed - {client1.Id} {client1.PasNumber} { client1.Payment }");
+                                                fileWriter2.WriteLine($"\nNothing was changed - {client.Id} {client.PasNumber} { client.Payment }");
+                                                fileWriter2.WriteLine($"\nNothing was changed - {client1.Id} {client1.PasNumber} { client1.Payment }");
                                                 fileWriter2.WriteLine($"\nYour Payment amount was changed - {client2.Id} {client2.PasNumber} { client2.Payment }");
                                             }
                                             using (StreamReader fileReader = new StreamReader($"{catalog}\nSomethingCopy.txt"))
@@ -202,26 +193,26 @@ namespace Files_hw
 
         
 
-        public static string CheckerForPas()
-        {
-            string forPassCheck;
+        //public static string CheckerForPas()
+        //{
+        //    string forPassCheck;
 
-            bool checker;
-            do
-            {
-                forPassCheck = Console.ReadLine();
-                if (forPassCheck[0] != 'A' || forPassCheck[1] != 'Z' || forPassCheck[2] != 'E' || forPassCheck.Length <= 0)
-                {
-                    Console.Write("You wrote the wrong symbol, try again: ");
-                    checker = false;
-                }
-                else
-                {
-                    break;
-                }
-            } while (checker == false);
-            return forPassCheck;
-        }
+        //    bool checker;
+        //    do
+        //    {
+        //        forPassCheck = Console.ReadLine();
+        //        if (forPassCheck[0] != 'A' || forPassCheck[1] != 'Z' || forPassCheck[2] != 'E' || forPassCheck.Length <= 0)
+        //        {
+        //            Console.Write("You wrote the wrong symbol, try again: ");
+        //            checker = false;
+        //        }
+        //        else
+        //        {
+        //            break;
+        //        }
+        //    } while (checker == false);
+        //    return forPassCheck;
+        //}
 
         static int ForIdCheck()
         {
@@ -229,7 +220,7 @@ namespace Files_hw
             for (; ; )
             {
                 string checkingNumber = Console.ReadLine();
-                if (Int32.TryParse(checkingNumber, out int number) && (number > 2 || number < 4))
+                if (Int32.TryParse(checkingNumber, out int number) && number > 0)
                 {
                     return number;
                 }
