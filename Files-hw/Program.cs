@@ -55,9 +55,10 @@ namespace Files_hw
     {
         static void Main(string[] args)
         {
-            bool result = true;
+            bool result;
             do
             {
+                result = true;
                 Console.WriteLine("Choose 1 for Windows or 2 for MacOS");
                 int switcher = ForIdCheck();
                 switch (switcher)
@@ -292,9 +293,6 @@ namespace Files_hw
                                 Console.WriteLine("This choice is for MacOS, pls choose 1 for Windows");
                                 result = false;
                             }
-
-
-
                             break;
                         }
                     default:
