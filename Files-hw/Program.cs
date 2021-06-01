@@ -290,7 +290,7 @@ namespace Files_hw
                             }
                             catch (Exception)
                             {
-                                Console.WriteLine("This choice is for MacOS, pls choose 1 for Windows");
+                                Console.WriteLine("This choice is for MacOS, pls choose Windows");
                                 result = false;
                             }
                             break;
