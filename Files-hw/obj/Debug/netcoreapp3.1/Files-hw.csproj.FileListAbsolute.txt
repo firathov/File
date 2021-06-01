@@ -1,0 +1,12 @@
+/Users/firat/Documents/Files-hw/Files-hw/bin/Debug/netcoreapp3.1/Files-hw.deps.json
+/Users/firat/Documents/Files-hw/Files-hw/bin/Debug/netcoreapp3.1/Files-hw.runtimeconfig.json
+/Users/firat/Documents/Files-hw/Files-hw/bin/Debug/netcoreapp3.1/Files-hw.runtimeconfig.dev.json
+/Users/firat/Documents/Files-hw/Files-hw/bin/Debug/netcoreapp3.1/Files-hw.dll
+/Users/firat/Documents/Files-hw/Files-hw/bin/Debug/netcoreapp3.1/Files-hw.pdb
+/Users/firat/Documents/Files-hw/Files-hw/obj/Debug/netcoreapp3.1/Files-hw.csprojAssemblyReference.cache
+/Users/firat/Documents/Files-hw/Files-hw/obj/Debug/netcoreapp3.1/Files-hw.AssemblyInfoInputs.cache
+/Users/firat/Documents/Files-hw/Files-hw/obj/Debug/netcoreapp3.1/Files-hw.AssemblyInfo.cs
+/Users/firat/Documents/Files-hw/Files-hw/obj/Debug/netcoreapp3.1/Files-hw.csproj.CoreCompileInputs.cache
+/Users/firat/Documents/Files-hw/Files-hw/obj/Debug/netcoreapp3.1/Files-hw.dll
+/Users/firat/Documents/Files-hw/Files-hw/obj/Debug/netcoreapp3.1/Files-hw.pdb
+/Users/firat/Documents/Files-hw/Files-hw/obj/Debug/netcoreapp3.1/Files-hw.genruntimeconfig.cache
