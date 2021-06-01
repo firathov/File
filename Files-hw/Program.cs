@@ -76,26 +76,26 @@ namespace Files_hw
                     case 2:
                         {
                             string catalog = "/Users/firat/FileName/";
-                            Console.Write("Type ID number for 1st User (it should contain 3 digits): ");
-                            int id = ForIdCheck();
-                            Console.Write("Type ID number for 2nd User (it should contain 3 digits): ");
-                            int id1 = ForIdCheck();
-                            Console.Write("Type ID number for 3rd User (it should contain 3 digits): ");
-                            int id2 = ForIdCheck();
+                            //Console.Write("Type ID number for 1st User (it should contain 3 digits): ");
+                            int id = 001;
+                            //Console.Write("Type ID number for 2nd User (it should contain 3 digits): ");
+                            int id1 = 025;
+                            //Console.Write("Type ID number for 3rd User (it should contain 3 digits): ");
+                            int id2 = 034;
 
-                            Console.Write("Type passport Number for 1st User: ");
-                            string pasNumber = CheckerForPas();
-                            Console.Write("Type passport Number for 2nd User: ");
-                            string pasNumber1 = CheckerForPas();
-                            Console.Write("Type passport Number for 3rd User: ");
-                            string pasNumber2 = CheckerForPas();
+                            //Console.Write("Type passport Number for 1st User: ");
+                            string pasNumber = "AZE12345678";
+                            //Console.Write("Type passport Number for 2nd User: ");
+                            string pasNumber1 = "AZE87652134";
+                            //Console.Write("Type passport Number for 3rd User: ");
+                            string pasNumber2 = "AZE81622144";
 
-                            Console.Write("Type Payment amount for 1st User: ");
-                            double payment = ForPaymentCheck();
-                            Console.Write("Type Payment amount for 2nd User: ");
-                            double payment1 = ForPaymentCheck();
-                            Console.Write("Type Payment amount for 3rd User: ");
-                            double payment2 = ForPaymentCheck();
+                            //Console.Write("Type Payment amount for 1st User: ");
+                            double payment = 22.30;
+                            //Console.Write("Type Payment amount for 2nd User: ");
+                            double payment1 = 50.00;
+                            //Console.Write("Type Payment amount for 3rd User: ");
+                            double payment2 = 12.35;
 
                             Client client = new Client(id, pasNumber, payment);
                             Client client1 = new Client(id1, pasNumber1, payment1);
@@ -134,6 +134,8 @@ namespace Files_hw
                                             using (StreamWriter fileWriter2 = new StreamWriter($"{catalog}\nSomethingCopy.txt", false, System.Text.Encoding.Default))
                                             {
                                                 fileWriter2.WriteLine($"\n Your Payment amount was changed - {client.Id} {client.PasNumber} { client.Payment }");
+                                                fileWriter2.WriteLine($"\n Nothing has been changed - {client1.Id} {client1.PasNumber} { client1.Payment }");
+                                                fileWriter2.WriteLine($"\n Nothing has been changed - {client2.Id} {client2.PasNumber} { client2.Payment }");
                                             }
                                             using (StreamReader fileReader = new StreamReader($"{catalog}\nSomethingCopy.txt"))
                                             {
@@ -147,7 +149,9 @@ namespace Files_hw
                                             client1.Payment = ForPaymentCheck();
                                             using (StreamWriter fileWriter2 = new StreamWriter($"{catalog}\nSomethingCopy.txt", false, System.Text.Encoding.Default))
                                             {
+                                                fileWriter2.WriteLine($"\nYour Payment amount was changed - {client.Id} {client.PasNumber} { client.Payment }");
                                                 fileWriter2.WriteLine($"\nYour Payment amount was changed - {client1.Id} {client1.PasNumber} { client1.Payment }");
+                                                fileWriter2.WriteLine($"\nYour Payment amount was changed - {client2.Id} {client2.PasNumber} { client2.Payment }");
                                             }
                                             using (StreamReader fileReader = new StreamReader($"{catalog}\nSomethingCopy.txt"))
                                             {
@@ -161,6 +165,8 @@ namespace Files_hw
                                             client2.Payment = ForPaymentCheck();
                                             using (StreamWriter fileWriter2 = new StreamWriter($"{catalog}\nSomethingCopy.txt", false, System.Text.Encoding.Default))
                                             {
+                                                fileWriter2.WriteLine($"\nYour Payment amount was changed - {client.Id} {client.PasNumber} { client.Payment }");
+                                                fileWriter2.WriteLine($"\nYour Payment amount was changed - {client1.Id} {client1.PasNumber} { client1.Payment }");
                                                 fileWriter2.WriteLine($"\nYour Payment amount was changed - {client2.Id} {client2.PasNumber} { client2.Payment }");
                                             }
                                             using (StreamReader fileReader = new StreamReader($"{catalog}\nSomethingCopy.txt"))
