@@ -64,18 +64,7 @@ namespace Files_hw
                 {
                     case 1:
                         {
-                            //Console.Write("Type ID number: ");
-                            //int id = Convert.ToInt32(Console.ReadLine());
-                            //Console.Write("Type passport Number: ");
-                            //string pasNumber = CheckerForPas();
-                            //Console.WriteLine("Type Payment amount");
-                            //double payment = Convert.ToDouble(Console.ReadLine());
-                            //Client client = new Client(id, pasNumber, payment);
-                            break;
-                        }
-                    case 2:
-                        {
-                            string catalog = "/Users/firat/FileName/";
+                            string catalog = @"C:\SomeDir";
                             int id = 001;
                             int id1 = 025;
                             int id2 = 034;
@@ -97,6 +86,7 @@ namespace Files_hw
                             {
                                 pathInfo.Create();
                             }
+
                             using (StreamWriter fileWriter = new StreamWriter($"{catalog}\nSomething.txt", false, System.Text.Encoding.Default))
                             {
 
@@ -111,11 +101,11 @@ namespace Files_hw
                             }
 
 
-                            Console.Write("Choice the user to change payment(1-2-3): ");
-                            bool checker2 = true;
-                            int choice = ForIdCheck();
+                            bool checker2;
                             do
                             {
+                                Console.Write("Choice the user to change payment(1-2-3): ");
+                                int choice = ForIdCheck();
                                 switch (choice)
                                 {
                                     case 1:
@@ -132,6 +122,7 @@ namespace Files_hw
                                             {
                                                 Console.WriteLine(fileReader.ReadToEnd());
                                             }
+                                            checker2 = true;
                                             break;
                                         }
                                     case 2:
@@ -148,6 +139,7 @@ namespace Files_hw
                                             {
                                                 Console.WriteLine(fileReader.ReadToEnd());
                                             }
+                                            checker2 = true;
                                             break;
                                         }
                                     case 3:
@@ -164,16 +156,146 @@ namespace Files_hw
                                             {
                                                 Console.WriteLine(fileReader.ReadToEnd());
                                             }
+                                            checker2 = true;
                                             break;
                                         }
                                     default:
                                         {
-                                            Console.Write("You have only 3 choices, pls try agains: ");
+                                            Console.Write("You have only 3 choices, pls try again: ");
                                             checker2 = false;
                                             break;
                                         }
                                 }
                             } while (checker2 == false);
+
+                            break;
+                        }
+                    case 2:
+                        {
+                            try
+                            {
+                                try
+                                {
+                                    string catalog = "/Users/firat/FileName/";
+                                    int id = 001;
+                                    int id1 = 025;
+                                    int id2 = 034;
+
+                                    string pasNumber = "AZE12345678";
+                                    string pasNumber1 = "AZE87652134";
+                                    string pasNumber2 = "AZE81622144";
+
+                                    double payment = 22.30;
+                                    double payment1 = 50.00;
+                                    double payment2 = 12.35;
+
+                                    Client client = new Client(id, pasNumber, payment);
+                                    Client client1 = new Client(id1, pasNumber1, payment1);
+                                    Client client2 = new Client(id2, pasNumber2, payment2);
+
+                                    DirectoryInfo pathInfo = new DirectoryInfo(catalog);
+
+                                    if(catalog == null)
+                                    {
+                                        throw new Exception("There is no Users disk on this coumputer");
+                                    }
+
+                                    if (!pathInfo.Exists)
+                                    {
+                                        pathInfo.Create();
+                                    }
+                                    using (StreamWriter fileWriter = new StreamWriter($"{catalog}\nSomething.txt", false, System.Text.Encoding.Default))
+                                    {
+
+                                        fileWriter.WriteLine($"{client.Id}; {client.PasNumber}; {client.Payment}" +
+                                            $"\n{client1.Id}; {client1.PasNumber}; {client1.Payment}" +
+                                            $"\n{client2.Id}; {client2.PasNumber}; {client2.Payment}");
+                                    }
+
+                                    using (StreamReader fileReader = new StreamReader($"{catalog}\nSomething.txt"))
+                                    {
+                                        Console.WriteLine(fileReader.ReadToEnd());
+                                    }
+
+
+                                    bool checker2;
+                                    do
+                                    {
+                                        Console.Write("Choice the user to change payment(1-2-3): ");
+                                        int choice = ForIdCheck();
+                                        switch (choice)
+                                        {
+                                            case 1:
+                                                {
+                                                    Console.Write("Type new Payment amount to change: ");
+                                                    client.Payment = ForPaymentCheck();
+                                                    using (StreamWriter fileWriter2 = new StreamWriter($"{catalog}\nSomethingCopy.txt", false, System.Text.Encoding.Default))
+                                                    {
+                                                        fileWriter2.WriteLine($"\n Your Payment amount was changed - {client.Id} {client.PasNumber} { client.Payment }");
+                                                        fileWriter2.WriteLine($"\n Nothing was changed - {client1.Id} {client1.PasNumber} { client1.Payment }");
+                                                        fileWriter2.WriteLine($"\n Nothing was changed - {client2.Id} {client2.PasNumber} { client2.Payment }");
+                                                    }
+                                                    using (StreamReader fileReader = new StreamReader($"{catalog}\nSomethingCopy.txt"))
+                                                    {
+                                                        Console.WriteLine(fileReader.ReadToEnd());
+                                                    }
+                                                    checker2 = true;
+                                                    break;
+                                                }
+                                            case 2:
+                                                {
+                                                    Console.Write("Type new Payment amount to change: ");
+                                                    client1.Payment = ForPaymentCheck();
+                                                    using (StreamWriter fileWriter2 = new StreamWriter($"{catalog}\nSomethingCopy.txt", false, System.Text.Encoding.Default))
+                                                    {
+                                                        fileWriter2.WriteLine($"\nNothing was changed - {client.Id} {client.PasNumber} { client.Payment }");
+                                                        fileWriter2.WriteLine($"\nYour Payment amount was changed - {client1.Id} {client1.PasNumber} { client1.Payment }");
+                                                        fileWriter2.WriteLine($"\nNothing was changed - {client2.Id} {client2.PasNumber} { client2.Payment }");
+                                                    }
+                                                    using (StreamReader fileReader = new StreamReader($"{catalog}\nSomethingCopy.txt"))
+                                                    {
+                                                        Console.WriteLine(fileReader.ReadToEnd());
+                                                    }
+                                                    checker2 = true;
+                                                    break;
+                                                }
+                                            case 3:
+                                                {
+                                                    Console.Write("Type new Payment amount to change: ");
+                                                    client2.Payment = ForPaymentCheck();
+                                                    using (StreamWriter fileWriter2 = new StreamWriter($"{catalog}\nSomethingCopy.txt", false, System.Text.Encoding.Default))
+                                                    {
+                                                        fileWriter2.WriteLine($"\nNothing was changed - {client.Id} {client.PasNumber} { client.Payment }");
+                                                        fileWriter2.WriteLine($"\nNothing was changed - {client1.Id} {client1.PasNumber} { client1.Payment }");
+                                                        fileWriter2.WriteLine($"\nYour Payment amount was changed - {client2.Id} {client2.PasNumber} { client2.Payment }");
+                                                    }
+                                                    using (StreamReader fileReader = new StreamReader($"{catalog}\nSomethingCopy.txt"))
+                                                    {
+                                                        Console.WriteLine(fileReader.ReadToEnd());
+                                                    }
+                                                    checker2 = true;
+                                                    break;
+                                                }
+                                            default:
+                                                {
+                                                    Console.Write("You have only 3 choices, pls try agains: ");
+                                                    checker2 = false;
+                                                    break;
+                                                }
+                                        }
+                                    } while (checker2 == false);
+
+                                }
+                                catch
+                                {
+                                    Console.WriteLine("Exceotion exists");
+                                    throw;
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
 
 
 
@@ -191,28 +313,28 @@ namespace Files_hw
             Console.ReadKey();
         }
 
-        
 
-        //public static string CheckerForPas()
-        //{
-        //    string forPassCheck;
 
-        //    bool checker;
-        //    do
-        //    {
-        //        forPassCheck = Console.ReadLine();
-        //        if (forPassCheck[0] != 'A' || forPassCheck[1] != 'Z' || forPassCheck[2] != 'E' || forPassCheck.Length <= 0)
-        //        {
-        //            Console.Write("You wrote the wrong symbol, try again: ");
-        //            checker = false;
-        //        }
-        //        else
-        //        {
-        //            break;
-        //        }
-        //    } while (checker == false);
-        //    return forPassCheck;
-        //}
+        public static string CheckerForPas()
+        {
+            string forPassCheck;
+
+            bool checker;
+            do
+            {
+                forPassCheck = Console.ReadLine();
+                if (forPassCheck[0] != 'A' || forPassCheck[1] != 'Z' || forPassCheck[2] != 'E' || forPassCheck.Length <= 0)
+                {
+                    Console.Write("You wrote the wrong symbol, try again: ");
+                    checker = false;
+                }
+                else
+                {
+                    break;
+                }
+            } while (checker == false);
+            return forPassCheck;
+        }
 
         static int ForIdCheck()
         {
